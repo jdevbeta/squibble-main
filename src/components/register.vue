@@ -4,7 +4,7 @@
           <span>Returning User?</span>
     </button>
     <div>
-      <form @submit.prevent ref="form">
+      <form @submit.prevent>
         <h1>Create an Account</h1>
         <label> Username: </label>
         <input 
@@ -40,7 +40,7 @@
 
 <script>
 export default {
-  name: 'register',
+  name: 'sqblRegister',
   data () {
     return {
 

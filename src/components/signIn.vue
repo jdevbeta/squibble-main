@@ -4,7 +4,7 @@
         <span>New User?</span>
     </button>
     <div>
-      <form @submit.prevent ref="form">
+      <form @submit.prevent="$emit('triggerSubmission')" ref="form">
         <h1>Sign In</h1>
         <label> Username: </label>
         <input 
@@ -30,8 +30,6 @@
 export default {
   name: 'signIn',
   methods: {
-    switchForm(){
-    }
   },
   data () {
     return {
