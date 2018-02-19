@@ -15,11 +15,6 @@
     </transition>
     <div id="developers">
       <button @click="openApp()">Test Popup</button>
-      <p>{{active}}</p>
-      <p>Windows: {{index.window}}</p>
-      <p>Clips: {{index.clipboard}}</p>
-      <p>Notepads: {{index.notepad}}</p>
-      <p>{{index}}</p>
     </div>
   </div>
 </template>
@@ -78,7 +73,8 @@ export default {
 
         },
         notepad: {
-          note1: {
+          SavedNote: {
+            title: "Saved Note One",
             content: "This is a Test."
           }
         }
@@ -90,9 +86,15 @@ export default {
 
 <style>
   body {
+    display: block;
+    height: 100vh;
     margin: 0;
     padding: 0;
     text-align: center;
+    background-color: #333;
+    background: linear-gradient(to top right, #222, rgba(255,255,255,0)),
+      linear-gradient(to top left, #337, rgba(255,255,255,0)),
+      linear-gradient(to bottom, #770074, rgba(255,255,255,0));
   }
 
   #developers {

@@ -1,37 +1,49 @@
 <template>
   <div>
+    <div>
     <button @click="$emit('switchForm', 'signIn')">
           <span>Returning User?</span>
     </button>
-    <div>
       <form @submit.prevent>
         <h1>Create an Account</h1>
-        <label> Username: </label>
-        <input 
-          type="text" 
-          pattern="[a-zA-Z0-9]+" 
-          id="inputUser" 
-          title="Use Letters A - Z and Numbers 0 - 9."
-        />
-        <label> First Name: </label>
-        <input type="text"
-          pattern="[a-zA-Z]+"
-          id="inputFirst" 
-          title="Use Letters A - Z for your First Name."
-        />
-        <label> Last Name: </label>
-        <input type="text" 
-          pattern="[a-zA-Z]+" 
-          id="inputLast" 
-          title="Use Letters A - Z for your Last Name."
-        />
-        <label> Password: </label>
-        <input 
-          type="password"
-          id="inputPass"
-          pattern="(?=.*\d)(?=.*[a-zA-Z]).{4,}"
-          title="Password must have a Number and a Letter."
-        />
+        <div>
+          <input 
+            type="text" 
+            pattern="[a-zA-Z0-9]+" 
+            id="inputUser" 
+            title="Use Letters A - Z and Numbers 0 - 9."
+            required
+          />
+          <label for="inputUser"> Username: </label>
+        </div>
+        <div>
+          <input type="text"
+            pattern="[a-zA-Z]+"
+            id="inputFirst" 
+            title="Use Letters A - Z for your First Name."
+            required
+          />
+          <label for="inputFirst"> First Name: </label>
+        </div>
+        <div>
+          <input type="text" 
+            pattern="[a-zA-Z]+" 
+            id="inputLast" 
+            title="Use Letters A - Z for your Last Name."
+            required
+          />
+          <label for="inputLast"> Last Name: </label>
+        </div>
+        <div>
+          <input 
+            type="password"
+            id="inputPass"
+            pattern="(?=.*\d)(?=.*[a-zA-Z]).{4,}"
+            title="Password must have a Number and a Letter."
+            required
+          />
+          <label for="inputPass"> Password: </label>
+        </div>
         <input type="submit" value="Submit" />
       </form>
     </div>
