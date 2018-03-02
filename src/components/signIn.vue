@@ -7,11 +7,13 @@
       <form @submit.prevent="$emit('triggerSubmission')" ref="form">
         <h1>Sign In</h1>
         <div>
-          <input 
+          <input
             type="text"
             id="inputUser"
             title="Use Letters A - Z and Numbers 0 - 9."
+            autocomplete="off"
             required
+            
           />
           <label for="inputUser"> Username </label>
         </div>

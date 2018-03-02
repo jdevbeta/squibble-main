@@ -1,0 +1,304 @@
+<html>
+<head>
+<style>
+
+	body {
+		background: #e2e2e2;
+		margin: 0;
+		padding: 0;
+		min-width: 300px;
+		min-height: 300px;
+	}
+
+	#header {
+		box-sizing: border-box;
+		display: block;
+		height: 35px;
+		background: #333;
+		text-align: center;
+	}
+	
+	#header h1 {
+		box-sizing: border-box;
+		display: block;
+		float: left;
+		margin: 5px;
+		padding: 0 5px;
+		height: 30px;
+		width: 45%;
+		color: #ccc;
+		font-size: 30px;
+		line-height: 40px;
+		font-family: tmp23;
+		letter-spacing: 1px;
+		text-align: left;
+	}
+	
+	#header select {
+		box-sizing: border-box;
+		display: block;
+		float: right;
+		margin: 5px;
+		padding: 0 5px;
+		height: 40px;
+		width: 45%;
+		border-radius: 2px 2px;
+		outline: none;
+		color: #111;
+		font-size: 20px;
+		font-family: tmp23;
+		letter-spacing: -1px;
+	}
+	
+	#header select option {
+		outline: none;
+	}
+	
+	#toolbar {
+		display: none;
+	
+		box-sizing: border-box;
+		position: absolute;
+		top: 50px;
+		width: 100vw;
+		height: 35px;
+		padding: 0 5px;
+		background: rgba(0,0,0,0.4);
+		cursor: default;
+		
+		max-height: 0px;
+		overflow: hidden;
+	}
+	
+	#toolbar i {
+		display: inline-block;
+		height: 25px;
+		width: 25px;
+		margin: 5px 0;
+		background: linear-gradient(to top right, #555, #999);
+		box-shadow: inset 0 0 5px 0 #111;
+		border: 0.5px solid #111;
+		border-radius: 3px;
+		font-size: 18px;
+		line-height: 25px;
+		color: #000;
+		text-align: center;
+		cursor: pointer;
+	}
+	
+	#note {
+		box-sizing: border-box;
+		display: block;
+		position: fixed;
+		top: 60px;
+		left: 10px;
+		width: calc(100vw - 20px);
+		height: calc(100vh - 100px);
+		margin: 0px;
+		padding: 0px;
+		background: rgba(255,255,255,0.5);
+		box-shadow: 0 0 15px 0 #000;
+		border-radius: 3px;
+		outline: none;
+		font-family: tmp20;
+		font-size: 20px;
+		overflow: auto;
+	}
+	
+	#note-content {
+		box-sizing: border-box;
+		display: inline-block;
+		position: relative;
+		height: auto;
+		min-height: calc(100% - 50px);
+		width: 100%;
+		margin: 0;
+		padding: 20px;
+		padding-bottom: 5px;
+		outline: none;
+	}
+	
+	#footer {
+		display: block;
+		
+		box-sizing: border-box;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 20px;
+		padding: 2px 3px;
+		background: #333;
+	}
+	
+	#style {
+		display: block;
+		
+		box-sizing: border-box;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		max-width: 285px;
+		min-width: 285px;
+		height: 20px;
+		padding: 0;
+		background: #333;
+	}
+	
+	#style span {
+		box-sizing: border-box;
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		margin: 0;
+		border: 3px solid #111;
+		cursor: pointer;
+		
+		transition: all 0.1s ease;
+	}
+	
+	.sample-group {
+		display: block;
+		float: left;
+		width: 105px;
+		height: 20px;
+		overflow: hidden;
+		
+		transition: max-width 0.3s ease;
+		transition-delay: 0.2s;
+		max-width: 22px;
+	}
+	
+	.sample-group:hover {
+		max-width: 72px;
+	}
+	
+	#watermark {
+		display: block;
+		position: relative;
+		height: 50px;
+		margin: 0;
+		padding: 0 50px;
+		font-family: tmp21;
+		font-size: 30px;
+		text-align: left;
+		letter-spacing: 1px;
+		color: rgba(0,0,0,0.3);
+	}
+	
+</style>
+</head>
+<body>
+	<div id="header">
+		<h1 contenteditable="true"> Untitled </h1>
+		<select>
+			<option> Untitled </option>
+			<option> Squibble Home </option>
+		</select>
+	</div>
+	
+	<!-- Pending Removal -->
+	<div id="toolbar">
+		<i class="fa fa-bold"></i>
+		<i class="fa fa-italic"></i>
+		<i class="fa fa-underline"></i>
+		<i class="fa fa-align-left"></i>
+		<i class="fa fa-align-center"></i>
+		<i class="fa fa-align-right"></i>
+		<i class="fa fa-list-ol"></i>
+		<i class="fa fa-list-ul"></i>
+		<i class="fa fa-link"></i>
+		<i class="fa fa-clipboard"></i>
+		<i class="fa fa-floppy-o"></i>
+		<i class="fa fa-share"></i>
+	</div>
+	
+	<div id="note">
+		<p id="note-content" contenteditable="true"></p>
+		<span id="watermark"> @Squibble </span>
+	</div>
+	<div id="footer">
+		<div id="style">
+				
+			<span class="sample" style="background: #e2e2e2;"></span>
+			<div class="sample-group">
+			<span class="sample" style="background: linear-gradient(to top right, #f90, #fd0);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #f50, #f90);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #f20, #f50);"></span>
+			</div>
+			<div class="sample-group">
+			<span class="sample" style="background: linear-gradient(to top right, #f02, #f05);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #f05, #f09);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #f09, #f0d);"></span>
+			</div>
+			
+			<div class="sample-group">
+			<span class="sample" style="background: linear-gradient(to top right, #50f, #90f);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #90f, #d0f);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #20f, #50f);"></span>
+			</div>
+			
+			<div class="sample-group">
+			<span class="sample" style="background: linear-gradient(to top right, #02f, #05f);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #05f, #09f);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #09f, #0df);"></span>
+			</div>
+			
+			
+			<div class="sample-group">
+			<span class="sample" style="background: linear-gradient(to top right, #0f9, #0fd);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #0f5, #0f9);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #0f2, #0f5);"></span>
+			</div>
+			
+			<div class="sample-group">
+			<span class="sample" style="background: linear-gradient(to top right, #2f0, #5f0);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #5f0, #9f0);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #9f0, #df0);"></span>
+			</div>
+		
+			<div class="sample-group">
+			<span class="sample" style="background: linear-gradient(to top right, #999, #ddd);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #555, #999);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #222, #555);"></span>
+			</div>
+			
+			<span class="sample" style="background: none; border: 3px solid #222;"></span>
+			<span class="sample" style="background: none; border: 3px solid #222;"></span>
+			<!-- 
+			<span class="sample" style="background: linear-gradient(to top right, #9f1, #df0);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #19f, #0df);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #fab, #fca);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #235, #4aa);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #3a5, #ba4);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #434, #eeb);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #a06, #605);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #0bb, #4bb);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #3dd, #58e);"></span>
+			<span class="sample" style="background: linear-gradient(to top right, #030, #090);"></span>
+			 -->
+			
+		</div>
+	</div>
+	<script>
+		function matchBackground(e){
+			var target = e.target;
+			var background = target.style.background;
+			console.log(background);
+			document.body.style.background = background;
+			return e;
+		}
+		
+		function addEventsToClass(stringClass, eventFunction){
+			var classArray = document.getElementsByClassName(stringClass);
+			for(var i=0; i<classArray.length; i++){
+				classArray[i].addEventListener("click", eventFunction);
+			}
+			return classArray;
+		}
+		
+		addEventsToClass("sample", matchBackground);
+		
+	</script>
+</body>
+</html>

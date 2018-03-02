@@ -38,7 +38,6 @@
           <input 
             type="password"
             id="inputPass"
-            pattern="(?=.*\d)(?=.*[a-zA-Z]).{4,}"
             title="Password must have a Number and a Letter."
             required
           />

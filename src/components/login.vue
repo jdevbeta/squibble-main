@@ -5,12 +5,12 @@
       enter-active-class="animated flipInY"
       leave-active-class="animated flipOutY"
     >
-    <component :is=active.form
-      v-on:switchForm=changeForm
-      v-on:triggerSubmission=submitLogin
-      class="sqblForm"
-    >
-    </component>
+      <component :is=active.form
+        v-on:switchForm=changeForm
+        v-on:triggerSubmission=submitLogin
+        class="sqblForm"
+      >
+      </component>
     </transition>
   </div>
 </template>
@@ -45,6 +45,7 @@ export default {
 </script>
 
 <style>
+
   .sqblForm {
     display: inline-block;
     position: relative;
@@ -153,13 +154,12 @@ export default {
     transform: scale(0.8);
   }
 
-  /*
   .sqblForm input:-webkit-autofill {
-    border: 0px solid #000;
+    border: 1px solid #000;
     box-shadow: inset 0 0 0 30px #333;
     -webkit-text-fill-color: #777;
+    transform: scale(0.8) !important;
   }
-  */
 
   .sqblForm input:focus {
     transform: scale(1);
@@ -174,4 +174,5 @@ export default {
     width: 80%;
     margin: 5% 10%;
   }
+  
 </style>
