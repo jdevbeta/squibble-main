@@ -22,26 +22,88 @@ export default {
   },
   created(){
     console.log("Loading Initiated.");
-    this.testProgress();
+    setTimeout(this.beginLoad, 50);
+    return false;
   },
   data () {
     return {
       load: {
         percent: '5',
-      }
+        delay: '100',
+        finalDelay: '700'
+      },
+      defaultApp: 'navigation',
+      url: null,
+      urlData: null,
+      app: null,
+      mem: null
     }
   },
   methods: {
-    testProgress(){
-      for(var i=0; i<=100; i++){
-        setTimeout(this.updateProgress, i*20, i);
-      }
-    },
     updateProgress(i){
       this.load.percent = i;
-      if(i == 100){
-        this.$emit('switchApp', 'login');
-      }
+    },
+    beginLoad(){
+        this.load.percent = 10;
+        this.url = location;
+        console.log('URL Data Found: '+this.url);
+        this.urlData = location.search.substr(1).split('&');
+        this.app = this.urlData[0] || this.defaultApp;
+        console.log('Preparing to Open: ' +this.app.toUpperCase());
+        this.mem = this.urlData[1] || null;
+        console.log('Memory Assigned: '+this.mem);
+        this.checkLogin();
+    },
+    checkLogin(){
+        this.load.percent = 20;
+        
+        if(true){
+            setTimeout(
+                this.authenticateSession,
+                this.load.delay
+            );
+        }
+    },
+    authenticateSession(){
+        this.load.percent = 30;
+        if(true){
+            setTimeout(
+                this.retriveData,
+                this.load.delay
+            );
+        }
+    },
+    retriveData(){
+        this.load.percent = 50;
+        console.log('Retrieving Local Data.');
+        if(true){
+            console.log('Data Located.')
+            setTimeout(
+                this.cleaningUp,
+                this.load.delay
+            );
+        }
+    },
+    cleaningUp(){
+        this.load.percent = 90;
+        if(true){
+            setTimeout(
+                this.loadingInterface,
+                this.load.delay
+            );
+        }
+        console.log('Cleaning Up any Final Steps.')
+    },
+    loadingInterface(){
+        this.load.percent = 100;
+        console.log('App Loading, Complete.');
+        setTimeout(
+            this.openApp, 
+            this.load.finalDelay
+        );
+    },
+    openApp(){
+        this.$emit('switchApp', this.app);
     }
   }
 }

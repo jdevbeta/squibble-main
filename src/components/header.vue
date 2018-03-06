@@ -52,6 +52,7 @@ export default {
     margin: 0px;
     padding: 5px 0px;
     background: rgba(0,0,0,0.5);
+    background: linear-gradient(to top right, #222, #444);
 
     overflow: hidden;
   }
@@ -64,14 +65,13 @@ export default {
     padding: 0;
 
     fill: #55f;
-    transition: all 0.3s ease;
+    transition: all 0.7s ease;
     cursor: pointer;
   }
 
   header .sqbl-icon:hover {
     fill: #f55;
     stroke-width: 2px;
-    filter: drop-shadow(0 0 2px #fff);
   }
 
   header input {

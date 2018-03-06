@@ -117,7 +117,7 @@ export default {
     margin: 0;
     padding: 0;
 
-    background: rgba(0,0,0,0.5);
+    background: linear-gradient(to top right, #222, #444);
 
     text-align: center;
 
